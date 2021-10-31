@@ -3,6 +3,7 @@ import React, { Component } from "react";
         render() {
         return (
         <div>
+            <h1> PRODUCT LIST</h1>
             <p>Products list!</p>
         </div>
         );
