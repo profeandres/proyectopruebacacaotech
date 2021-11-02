@@ -14,14 +14,11 @@ abre 'GIT BASH' dando click derecho dentro de dicha carpeta
 
 escribe el siguiente comando
 
-### `yarn start`
+### `git clone https://github.com/profeandres/proyectopruebacacaotech.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Cuarto Paso
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
+Abre la carpeta ###proyectopruebacacaotech
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
