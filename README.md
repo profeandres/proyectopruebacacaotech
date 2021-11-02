@@ -1,10 +1,18 @@
-# Getting Started with Create React App
+# Como ver la página
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projecto de prueba ha sido realizado en React.
 
-## Available Scripts
+## Primer Paso
 
-In the project directory, you can run:
+Abre una carpeta nueva donde gustes en tu computador para clonar todos los archivos
+
+## Segundo Paso
+
+abre 'GIT BASH' dando click derecho dentro de dicha carpeta
+
+## Tercer Paso
+
+escribe el siguiente comando
 
 ### `yarn start`
 
