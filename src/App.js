@@ -1,80 +1,51 @@
 //IMPORTACIONES GENERALES
 import React from "react";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
+import { useState } from 'react';
 
 //IMPORTACIÓN DEL ROUTER (NO TOCAR A MENOS QUE SEA NECESARIO)
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 //PONER AQUÍ LOS COMPONENTES JUNTO CON SU CONFIGURACIÓN ROUTER.
-
-import ProductList from "./components/products-list.component";
-import Home from "./components/home.component";
-
+import Navbar from "./componentes/Navbar";
+import Home from "./componentes/Home";
+import Products from "./componentes/Products";
 //PLANTILLA APP CON TODOS LOS CODIGOS DE LA PÁGINA HTML/CSS/BOOTSTRAP
 
 function App() {
+  //Dynamic Values:
+  const [products, setProducts] = useState([
+    {id: 1, name:'Urea', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/StQT50t/bulto-urea.jpg'},
+    {id: 2, name:'Dap', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/2qHzzZp/cajon-fermentador.jpg'},
+    {id: 3, name:'KCl', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/d63pGfk/kcl.jpg'},
+    {id: 4, name:'Nitafos', presentacion: 'Bulto 50kg',Tipo: 'Organico', urlImg: 'https://i.ibb.co/QDhcMN6/nitrafos.jpg'},
+  ])
+
+  const productsv= [
+    {id: 1, name:'Urea', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/StQT50t/bulto-urea.jpg'},
+    {id: 2, name:'Dap', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/2qHzzZp/cajon-fermentador.jpg'},
+    {id: 3, name:'KCl', presentacion: 'Bulto 50kg',Tipo: 'Quimico', urlImg: 'https://i.ibb.co/d63pGfk/kcl.jpg'},
+    {id: 4, name:'Nitafos', presentacion: 'Bulto 50kg',Tipo: 'Organico', urlImg: 'https://i.ibb.co/QDhcMN6/nitrafos.jpg'},
+    {id: 5, name:'Fosforita', presentacion: 'Bulto 50kg',Tipo: 'Organico', urlImg: 'https://i.ibb.co/Rp8F3y5/fosforita.jpg'},
+    {id: 6, name:'Silimagna granulado', presentacion: 'Bulto 50kg',Tipo: 'Organico', urlImg: 'https://i.ibb.co/J5vrQRn/silimagna.jpg'},
+    {id: 7, name:'Imbiosil', presentacion: 'Bulto 50kg',Tipo: 'Organico', urlImg: 'https://i.ibb.co/zR69Fx5/inbiosil.png'},
+  ]
+
+  const showCategories = (tipo) => {
+    setProducts(productsv);
+    console.log(products);    
+    const newProducts= products.filter(product => product.Tipo === tipo);
+    setProducts(newProducts);
+    console.log(newProducts);
+  }
+
+  //los dynamic values se llaman en el template como: { dynamicValue } 
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">
-          <Navbar bg="dark" variant="dark">
-            <Container>
+    <div className="app">
+      <Navbar />
+      <div className="content">
+        <Home />
+        <Products products={products} showCategories={showCategories}/>
 
-              {/* MARCA DE LA PÁGINA */}
-              <Navbar.Brand>
-                <Link to={"/home"} className="nav-link">
-                  CACAOTECH PRODUCTS APP
-                </Link>
-              </Navbar.Brand>
-
-              {/*AQUI SE PONE LA NAVEGACIÓN COMO LA BARRA PRINCIPAL*/ }
-              <Nav className="justify-content-end">
-                
-                {/* PRIMERA OPCION */}
-                <Nav>
-                  <Link to={"/products-list"} className="nav-link">
-                    Product List
-                  </Link>
-                </Nav>
-
-                {/* SEGUNDA OPCION */}
-                {/* <Nav>
-                <Link to={"/edit-student/:id"} className="navlink">
-                Edit Student
-                </Link>
-                </Nav> */}
-
-                {/* TERCERA OPCION */}  
-                {/* <Nav>
-                  <Link to={"/student-list"} className="nav-link">
-                    Student List
-                  </Link>
-                </Nav> */}
-
-              </Nav>
-            </Container>
-          </Navbar>
-        </header>
-        <Container>
-          <Row>
-            <Col md={12}>
-              <div className="wrapper">
-                <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route path='/home' component={Home} />
-                  <Route path="/products-list" component={ProductList} />
-                </Switch>
-              </div>
-            </Col>
-          </Row>
-        </Container>
       </div>
-    </Router>);
+    </div>
+    );
 }
 export default App;

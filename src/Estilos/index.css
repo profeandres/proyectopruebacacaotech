@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+*{
+  margin: 0 auto;
+  background-color: rgb(255, 182, 87);
+  font-family: 'Quicksand';
+}
+
+.content{
+  margin-top: 80px;
+}
+
+
+
